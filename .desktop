@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=My Electron App
+Exec=/path/to/my/app
+Icon=/path/to/my/favicon.ico
+Terminal=false

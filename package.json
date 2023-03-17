@@ -1,0 +1,14 @@
+{
+  "name": "chatgpt-electron",
+  "version": "1.0.0",
+  "description": "chatgpt-electron",
+  "main": "main.js",
+  "author": "Daniele",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "23.1.4"
+  }
+}
