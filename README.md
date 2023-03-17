@@ -1,4 +1,4 @@
-# Electron wrapper
+# ChatGPT Electron wrapper
 
 ## Build and start
 
