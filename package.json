@@ -1,14 +1,34 @@
 {
   "name": "chatgpt-electron",
-  "version": "1.0.0",
-  "description": "chatgpt-electron",
-  "main": "main.js",
-  "author": "Daniele",
+  "author": "Daniele Dellafiore",
   "license": "MIT",
+  "description": "chatgpt-electron",
+  "productName": "ChatGPT Desktop",
+  "version": "1.0.0",
+  "build": {
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
   "devDependencies": {
-    "electron": "23.1.4"
+    "electron": "23.1.4",
+    "electron-builder": "23.6.0",
+    "electron-store": "8.1.0"
   }
 }
