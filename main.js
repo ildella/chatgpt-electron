@@ -3,15 +3,17 @@ const Store = require('electron-store')
 const store = new Store()
 
 app.on('ready', () => {
-  const {width = 1200, height = 1200} = store.get('windowSize') || {}
-  const mainWindow = new BrowserWindow({ 
+  const {width = 1000, height = 1000, x = 200, y = 100} = store.get('bounds') || {}
+  const mainWindow = new BrowserWindow({
+    x,
+    y,
     width, 
     height,
     icon: './favicon-32x32.png',
   })
   mainWindow.loadURL('https://chat.openai.com')
   mainWindow.on('close', () => {
-    const { width, height } = mainWindow.getBounds()
-    store.set('windowSize', { width, height })
+    const bounds = mainWindow.getBounds()
+    store.set('bounds', bounds)
   })
 })
