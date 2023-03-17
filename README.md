@@ -13,3 +13,9 @@ npm start
 yarn
 yarn start
 ```
+
+## F.A.Q.
+
+#### Does it keep authentication across sessions?
+
+Yes.
