@@ -1,11 +1,9 @@
 const { app, BrowserWindow } = require('electron');
 
-let mainWindow;
-
 app.on('ready', () => {
-  mainWindow = new BrowserWindow({ 
-    width: 800, 
-    height: 600,
+  const mainWindow = new BrowserWindow({ 
+    width: 1200, 
+    height: 1200,
     icon: './favicon-32x32.png',
   });
   mainWindow.loadURL('https://chat.openai.com');

@@ -14,6 +14,10 @@ yarn
 yarn start
 ```
 
+## Why?
+
+Because Alt+Tab is faster.
+
 ## F.A.Q.
 
 #### Does it keep authentication across sessions?
