@@ -29,3 +29,7 @@ Because Alt+Tab is faster.
 #### Does it keep authentication across sessions?
 
 Yes.
+
+#### Are links opened in the default desktop browser?
+
+Yes.
