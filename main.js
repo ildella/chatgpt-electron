@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut, shell, ipcMain, ipcRenderer } = require('electron')
+const { app, BrowserWindow, globalShortcut, shell } = require('electron')
 const Store = require('electron-store')
 const path = require('path')
 
