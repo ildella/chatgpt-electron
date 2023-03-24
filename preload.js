@@ -48,7 +48,7 @@ ipcRenderer.on('request-find-in-page', () => {
   })
 
   ipcRenderer.on('restore-focus', event => {
-    console.info('restore-focus', event)
+    console.info('restore-focus event')
     searchInput.focus()
   })
 

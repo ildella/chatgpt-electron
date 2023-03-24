@@ -32,14 +32,13 @@ const createWindow = () => {
     store.set('bounds', mainWindow.getBounds())
   })
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
-    // event.preventDefault();
     shell.openExternal(url);
     return { action: 'deny' };
   })
   
-  // mainWindow.once('ready-to-show', () => {
-  //   mainWindow.webContents.openDevTools()
-  // })
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.webContents.openDevTools()
+  })
   
   mainWindow.webContents.on('before-input-event', (event, input) => {
     if (input.control && input.key.toLowerCase() === 'f') {
@@ -50,18 +49,18 @@ const createWindow = () => {
   ipcMain.on('find-in-page', (event, searchText, options) => {
     console.info('find-in-page', searchText)
     const focusedWindow = BrowserWindow.getFocusedWindow()
-
     if (focusedWindow) {
       const {webContents} = focusedWindow
       const result = webContents.findInPage(searchText, options)
       console.log({result})
-      webContents.on('found-in-page', (event, result) => {
-        console.info('found-in-page', result)
-        webContents.send('restore-focus')
-        event.preventDefault()
-      })
+      // mainWindow.webContents.send('restore-focus')
     }
   })
+  mainWindow.webContents.on('found-in-page', (event, result) => {
+    console.info('found-in-page', result.matches)
+    mainWindow.webContents.send('restore-focus')
+  })
+
   ipcMain.on('stop-find-in-page', (event, action) => {
     const focusedWindow = BrowserWindow.getFocusedWindow()
     console.info('stop-find-in-page', action)
