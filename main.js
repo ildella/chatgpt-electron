@@ -16,18 +16,19 @@ const createWindow = () => {
     height,
     icon: './favicon-32x32.png',
     webPreferences: {
-      nodeIntegration: false,
-      contextIsolation: true,
-      enableRemoteModule: false,
+      // nodeIntegration: false,
+      // contextIsolation: true,
+      // enableRemoteModule: false,
       preload,
       // devTools: true,
     },
     autoHideMenuBar: true,
   })
   mainWindow.loadURL('https://chat.openai.com')
-  mainWindow.webContents.on('did-finish-load', () => {
-    mainWindow.show()
-  })
+  // mainWindow.loadURL('https://mozilla.org')
+  // mainWindow.webContents.on('did-finish-load', () => {
+  //   mainWindow.show()
+  // })
   mainWindow.on('close', () => {
     store.set('bounds', mainWindow.getBounds())
   })
@@ -36,9 +37,9 @@ const createWindow = () => {
     return { action: 'deny' };
   })
   
-  mainWindow.once('ready-to-show', () => {
-    mainWindow.webContents.openDevTools()
-  })
+  // mainWindow.once('ready-to-show', () => {
+  //   mainWindow.webContents.openDevTools()
+  // })
   
   mainWindow.webContents.on('before-input-event', (event, input) => {
     if (input.control && input.key.toLowerCase() === 'f') {
