@@ -1,5 +1,6 @@
 console.info('PRELOAD')
 
+// In renderer.js or the equivalent renderer process file
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.on('request-find-in-page', () => {
@@ -19,9 +20,11 @@ ipcRenderer.on('request-find-in-page', () => {
 
   searchInput.style.display = 'block' 
   searchInput.focus()
+  console.info(searchInput.style.display)
 
   let firstInput = true
   searchInput.addEventListener('input', event => {
+
     const searchText = searchInput.value
     const options = {
       forward: true,
@@ -31,8 +34,13 @@ ipcRenderer.on('request-find-in-page', () => {
       wordStart: false,
     }
 
-    ipcRenderer.send('find-in-page', searchText, options)
-    firstInput = false
+    if (searchText) {
+      ipcRenderer.send('find-in-page', searchText, options)
+      firstInput = false
+    } else {
+      // ipcRenderer.send('stop-find-in-page', 'clearSelection')
+      firstInput = true
+    }
   })
 
   ipcRenderer.on('restore-focus', event => {
