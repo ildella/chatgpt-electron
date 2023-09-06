@@ -28,7 +28,7 @@
     "build": "npx electron-builder build"
   },
   "devDependencies": {
-    "electron": "23.1.4",
+    "electron": "23.3.13",
     "electron-builder": "24.0.0",
     "electron-store": "8.1.0"
   }
